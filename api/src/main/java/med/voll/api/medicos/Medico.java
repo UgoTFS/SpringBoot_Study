@@ -2,7 +2,7 @@ package med.voll.api.medicos;
 
 import org.springframework.data.annotation.Id;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import med.voll.api.endereco.Endereco;
 
