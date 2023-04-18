@@ -15,42 +15,42 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.medicos.DadosAtualizacaoMedico;
-import med.voll.api.medicos.DadosCadastroMedico;
-import med.voll.api.medicos.DadosListagemMedico;
-import med.voll.api.medicos.Medico;
-import med.voll.api.medicos.MedicoRepository;
+import med.voll.api.pacientes.DadosAtualizacaoPaciente;
+import med.voll.api.pacientes.DadosCadastroPaciente;
+import med.voll.api.pacientes.DadosListagemPaciente;
+import med.voll.api.pacientes.Paciente;
+import med.voll.api.pacientes.PacienteRepository;
 
 @RestController
-@RequestMapping("/medicos")
-public class MedicoController {
+@RequestMapping("/pacientes")
+public class PacienteController {
 
   @Autowired
-  private MedicoRepository repository;
+  private PacienteRepository repository;
 
   @PostMapping
   @Transactional
-  public void cadastrar(@RequestBody @Valid DadosCadastroMedico dados) {
-    repository.save(new Medico(dados));
+  public void cadastrar(@RequestBody @Valid DadosCadastroPaciente dados) {
+    repository.save(new Paciente(dados));
   }
 
   @GetMapping
-  public Page<DadosListagemMedico> listar(@PageableDefault(size = 10, sort = { "nome" }) Pageable paginacao) {
-    return repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
+  public Page<DadosListagemPaciente> listar(@PageableDefault(size = 10, sort = { "nome" }) Pageable paginacao) {
+    return repository.findAllByAtivoTrue(paginacao).map(DadosListagemPaciente::new);
   }
 
   @PutMapping
   @Transactional
-  public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
-    var medico = repository.getReferenceById(dados.id());
-    medico.atualizarInformacoes(dados);
+  public void atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados){
+    var paciente = repository.getReferenceById(dados.id());
+    paciente.atualizarInformacoes(dados);
   }
 
   @DeleteMapping("/{id}")
   @Transactional
-  public void excluir(@PathVariable Long id){
-    var medico = repository.getReferenceById(id);
-    medico.excluir();
+  public void deletar(@PathVariable Long id){
+    var paciente = repository.getReferenceById(id);
+    paciente.excluir();
   }
 
 }
