@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 aulas.todo
+createMedicos.json
 
 ### STS ###
 .apt_generated
