@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 aulas.todo
 createMedicos.json
+MOCK_DATA.json
 
 ### STS ###
 .apt_generated
