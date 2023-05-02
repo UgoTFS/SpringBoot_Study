@@ -22,13 +22,15 @@ public interface MedicoRepository extends JpaRepository<Medico, Long>{
         select c.medico.id from Consulta c
         where 
         c.data = :data
-        and
-        c.motivoCancelamento is null
       )
       order by rand()
       limit 1
       """)
   Medico escolherMedicoLivre(Especialidade especialidade, LocalDateTime data);
+
+  // and
+  // c.motivoCancelamento is null
+
 
   @Query("""
       select m.ativo 
