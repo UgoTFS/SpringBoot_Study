@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.domain.pacientes.DadosAtualizacaoPaciente;
@@ -26,6 +27,7 @@ import med.voll.api.domain.pacientes.PacienteRepository;
 
 @RestController
 @RequestMapping("/pacientes")
+@SecurityRequirement(name = "bearer-key")
 public class PacienteController {
 
   @Autowired
@@ -37,7 +39,7 @@ public class PacienteController {
     var paciente = new Paciente(dados);
     repository.save(paciente);
     var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
-    return ResponseEntity.created(uri).body(paciente);
+    return ResponseEntity.created(uri).body(new DadosDetalhamentoPaciente(paciente));
   }
 
   @GetMapping
@@ -63,7 +65,7 @@ public class PacienteController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity detalhar(@PathVariable Long id){
+  public ResponseEntity<DadosDetalhamentoPaciente> detalhar(@PathVariable Long id){
     var paciente = repository.getReferenceById(id);
     return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
   }
