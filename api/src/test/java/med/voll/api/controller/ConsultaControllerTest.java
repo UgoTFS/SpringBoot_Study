@@ -1,5 +1,12 @@
 package med.voll.api.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +24,6 @@ import med.voll.api.domain.consultas.AgendaDeConsultas;
 import med.voll.api.domain.consultas.DadosAgendamentoConsulta;
 import med.voll.api.domain.consultas.DadosDetalhamentoConsulta;
 import med.voll.api.domain.medicos.Especialidade;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-
-import java.time.LocalDateTime;
-
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @AutoConfigureMockMvc
