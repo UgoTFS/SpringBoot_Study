@@ -1,0 +1,513 @@
+{
+	"info": {
+		"_postman_id": "44ba3721-7b85-4e89-8019-03d5776adcd6",
+		"name": "API Voll Med",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21227438"
+	},
+	"item": [
+		{
+			"name": "Requisições",
+			"item": [
+				{
+					"name": "Medicos",
+					"item": [
+						{
+							"name": "Cadastro Médicos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"nome\": \"Rodrigo Ferreira\",\r\n\"email\": \"rodrigo.ferreira@voll.med\",\r\n\"crm\": \"123456\",\r\n\"especialidade\": \"ORTOPEDIA\",\r\n\"endereco\": {\r\n    \"logradouro\": \"rua 1\",\r\n    \"bairro\": \"bairro\",\r\n    \"cep\": \"12345678\",\r\n    \"cidade\": \"Brasilia\",\r\n    \"uf\": \"DF\",\r\n    \"numero\": \"1\",\r\n    \"complemento\": \"complemento\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/medicos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MockData 100 entries",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const medicos = pm.collectionVariables.get(\"listaMedicos\");\r",
+											"\r",
+											"if (medicos && medicos.length > 0){\r",
+											"    postman.setNextRequest(\"Loop Post Parameter\");\r",
+											"} else {\r",
+											"    postman.setNextRequest(null);\r",
+											"}\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"listaMedicos\": [\r\n        {\r\n            \"nome\": \"Arch Sheriff\",\r\n            \"email\": \"asheriff0@foxnews.com\",\r\n            \"crm\": 716817,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Grim\",\r\n                \"cidade\": \"Sidirókastro\",\r\n                \"numero\": \"1\",\r\n                \"complemento\": \"Alley\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Phebe Larkkem\",\r\n            \"email\": \"plarkkem1@twitter.com\",\r\n            \"crm\": 420681,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"3rd\",\r\n                \"cidade\": \"Kasempa\",\r\n                \"numero\": \"135\",\r\n                \"complemento\": \"Park\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Odette Knappe\",\r\n            \"email\": \"oknappe2@example.com\",\r\n            \"crm\": 873421,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Hallows\",\r\n                \"cidade\": \"Qulaybīyah\",\r\n                \"numero\": \"93\",\r\n                \"complemento\": \"Court\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Sephira Lax\",\r\n            \"email\": \"slax3@last.fm\",\r\n            \"crm\": 545110,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Springs\",\r\n                \"cidade\": \"Jubao\",\r\n                \"numero\": \"89851\",\r\n                \"complemento\": \"Lane\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Wilbur Shotbolt\",\r\n            \"email\": \"wshotbolt4@csmonitor.com\",\r\n            \"crm\": 229279,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Hanover\",\r\n                \"cidade\": \"Kura\",\r\n                \"numero\": \"7\",\r\n                \"complemento\": \"Point\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Maryl O' Mulderrig\",\r\n            \"email\": \"mo5@buzzfeed.com\",\r\n            \"crm\": 760134,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Stang\",\r\n                \"cidade\": \"Sunjia Buzi\",\r\n                \"numero\": \"7\",\r\n                \"complemento\": \"Hill\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Cara Worthing\",\r\n            \"email\": \"cworthing6@altervista.org\",\r\n            \"crm\": 459331,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Delladonna\",\r\n                \"cep\": \"51301\",\r\n                \"cidade\": \"Drenova\",\r\n                \"numero\": \"2773\",\r\n                \"complemento\": \"Alley\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Florenza Tink\",\r\n            \"email\": \"ftink7@blog.com\",\r\n            \"crm\": 322137,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Doe Crossing\",\r\n                \"cidade\": \"Gaoshi\",\r\n                \"numero\": \"76520\",\r\n                \"complemento\": \"Point\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Beale Druhan\",\r\n            \"email\": \"bdruhan8@reuters.com\",\r\n            \"crm\": 643421,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Elmside\",\r\n                \"cidade\": \"Longgao\",\r\n                \"numero\": \"91\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Enrichetta Houndesome\",\r\n            \"email\": \"ehoundesome9@hubpages.com\",\r\n            \"crm\": 227193,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Summerview\",\r\n                \"cidade\": \"Sukamaju\",\r\n                \"numero\": \"29009\",\r\n                \"complemento\": \"Street\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Kelsy Lavalde\",\r\n            \"email\": \"klavaldea@tumblr.com\",\r\n            \"crm\": 199289,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Mayfield\",\r\n                \"bairro\": \"Provence-Alpes-Côte d'Azur\",\r\n                \"cep\": \"13269 CEDEX 08\",\r\n                \"cidade\": \"Marseille\",\r\n                \"uf\": \"B8\",\r\n                \"numero\": \"9\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Bat Lorent\",\r\n            \"email\": \"blorentb@ucla.edu\",\r\n            \"crm\": 677465,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Delaware\",\r\n                \"bairro\": \"Veracruz Llave\",\r\n                \"cep\": \"94463\",\r\n                \"cidade\": \"Buenavista\",\r\n                \"uf\": \"VER\",\r\n                \"numero\": \"27\",\r\n                \"complemento\": \"Plaza\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Wallis Laible\",\r\n            \"email\": \"wlaiblec@ezinearticles.com\",\r\n            \"crm\": 989207,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Morrow\",\r\n                \"cidade\": \"Dasht-e Lati\",\r\n                \"numero\": \"335\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Say Geddis\",\r\n            \"email\": \"sgeddisd@adobe.com\",\r\n            \"crm\": 280270,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Johnson\",\r\n                \"cidade\": \"Likasi\",\r\n                \"numero\": \"4755\",\r\n                \"complemento\": \"Street\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Norby Matessian\",\r\n            \"email\": \"nmatessiane@vk.com\",\r\n            \"crm\": 548879,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Esch\",\r\n                \"cidade\": \"Puerto Quellón\",\r\n                \"numero\": \"548\",\r\n                \"complemento\": \"Circle\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Davide Harverson\",\r\n            \"email\": \"dharversonf@over-blog.com\",\r\n            \"crm\": 91827,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Hoepker\",\r\n                \"cidade\": \"Trostyanets’\",\r\n                \"numero\": \"55\",\r\n                \"complemento\": \"Plaza\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Mile Jacobson\",\r\n            \"email\": \"mjacobsong@npr.org\",\r\n            \"crm\": 546410,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Raven\",\r\n                \"cep\": \"PLA\",\r\n                \"cidade\": \"Paola\",\r\n                \"numero\": \"937\",\r\n                \"complemento\": \"Terrace\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Sheree Cordelle\",\r\n            \"email\": \"scordelleh@theatlantic.com\",\r\n            \"crm\": 941775,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Chive\",\r\n                \"cep\": \"526529\",\r\n                \"cidade\": \"Los Andes\",\r\n                \"numero\": \"40\",\r\n                \"complemento\": \"Terrace\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Weber Abbs\",\r\n            \"email\": \"wabbsi@fema.gov\",\r\n            \"crm\": 759671,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Shopko\",\r\n                \"cidade\": \"Saurimo\",\r\n                \"numero\": \"5\",\r\n                \"complemento\": \"Trail\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Jennifer Ferrieres\",\r\n            \"email\": \"jferrieresj@seesaa.net\",\r\n            \"crm\": 635812,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Northwestern\",\r\n                \"cidade\": \"Xiaoduchuan\",\r\n                \"numero\": \"05360\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Elsa Samweyes\",\r\n            \"email\": \"esamweyesk@seesaa.net\",\r\n            \"crm\": 138758,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Katie\",\r\n                \"cidade\": \"Jomda\",\r\n                \"numero\": \"3396\",\r\n                \"complemento\": \"Pass\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Othilia Fann\",\r\n            \"email\": \"ofannl@rediff.com\",\r\n            \"crm\": 986116,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Swallow\",\r\n                \"cidade\": \"Alue Glumpang\",\r\n                \"numero\": \"644\",\r\n                \"complemento\": \"Court\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Alla Chappelle\",\r\n            \"email\": \"achappellem@wikipedia.org\",\r\n            \"crm\": 964616,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Stoughton\",\r\n                \"cep\": \"2087\",\r\n                \"cidade\": \"Chelopech\",\r\n                \"numero\": \"3030\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Rosanna Fossick\",\r\n            \"email\": \"rfossickn@theglobeandmail.com\",\r\n            \"crm\": 871413,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Rowland\",\r\n                \"cidade\": \"Aitape\",\r\n                \"numero\": \"2856\",\r\n                \"complemento\": \"Court\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Corrinne Keates\",\r\n            \"email\": \"ckeateso@cnn.com\",\r\n            \"crm\": 175111,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Spenser\",\r\n                \"cidade\": \"Hongxi\",\r\n                \"numero\": \"39\",\r\n                \"complemento\": \"Terrace\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Cordie Klee\",\r\n            \"email\": \"ckleep@wordpress.com\",\r\n            \"crm\": 497834,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Pennsylvania\",\r\n                \"cidade\": \"Heshi\",\r\n                \"numero\": \"1\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Valentine Reeken\",\r\n            \"email\": \"vreekenq@sphinn.com\",\r\n            \"crm\": 865272,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Fairfield\",\r\n                \"cep\": \"33901\",\r\n                \"cidade\": \"Tampere\",\r\n                \"numero\": \"80572\",\r\n                \"complemento\": \"Drive\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Franny Mantripp\",\r\n            \"email\": \"fmantrippr@dmoz.org\",\r\n            \"crm\": 330521,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Atwood\",\r\n                \"cep\": \"735 35\",\r\n                \"cidade\": \"Horní Suchá\",\r\n                \"numero\": \"39\",\r\n                \"complemento\": \"Crossing\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Izak Boat\",\r\n            \"email\": \"iboats@netlog.com\",\r\n            \"crm\": 944999,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Reindahl\",\r\n                \"cidade\": \"El Llano\",\r\n                \"numero\": \"87175\",\r\n                \"complemento\": \"Alley\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Eb Bautiste\",\r\n            \"email\": \"ebautistet@usa.gov\",\r\n            \"crm\": 212421,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Grayhawk\",\r\n                \"cidade\": \"Somorpenang\",\r\n                \"numero\": \"800\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Flin Leathard\",\r\n            \"email\": \"fleathardu@elpais.com\",\r\n            \"crm\": 639901,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Redwing\",\r\n                \"cidade\": \"Árgos\",\r\n                \"numero\": \"44\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Angelica Meindl\",\r\n            \"email\": \"ameindlv@nhs.uk\",\r\n            \"crm\": 983974,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Mockingbird\",\r\n                \"cep\": \"43-378\",\r\n                \"cidade\": \"Rybarzowice\",\r\n                \"numero\": \"4\",\r\n                \"complemento\": \"Terrace\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Pincas Forster\",\r\n            \"email\": \"pforsterw@jalbum.net\",\r\n            \"crm\": 678569,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Glendale\",\r\n                \"cep\": \"751 19\",\r\n                \"cidade\": \"Vlkoš\",\r\n                \"numero\": \"624\",\r\n                \"complemento\": \"Crossing\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Paddie Tidbold\",\r\n            \"email\": \"ptidboldx@blog.com\",\r\n            \"crm\": 771792,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Oriole\",\r\n                \"cep\": \"763 62\",\r\n                \"cidade\": \"Tlumačov\",\r\n                \"numero\": \"42346\",\r\n                \"complemento\": \"Center\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Darill Podd\",\r\n            \"email\": \"dpoddy@usa.gov\",\r\n            \"crm\": 197183,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Longview\",\r\n                \"cidade\": \"Youdian\",\r\n                \"numero\": \"92914\",\r\n                \"complemento\": \"Pass\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Malissia Barson\",\r\n            \"email\": \"mbarsonz@over-blog.com\",\r\n            \"crm\": 580160,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"8th\",\r\n                \"cidade\": \"Sampir\",\r\n                \"numero\": \"926\",\r\n                \"complemento\": \"Park\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Beverly Slocombe\",\r\n            \"email\": \"bslocombe10@spiegel.de\",\r\n            \"crm\": 446139,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Boyd\",\r\n                \"bairro\": \"Minnesota\",\r\n                \"cep\": \"55579\",\r\n                \"cidade\": \"Maple Plain\",\r\n                \"uf\": \"MN\",\r\n                \"numero\": \"89094\",\r\n                \"complemento\": \"Crossing\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Lethia Laite\",\r\n            \"email\": \"llaite11@hud.gov\",\r\n            \"crm\": 635429,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Cherokee\",\r\n                \"cep\": \"1104\",\r\n                \"cidade\": \"Paraiso\",\r\n                \"numero\": \"45175\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Almira Carnall\",\r\n            \"email\": \"acarnall12@ebay.com\",\r\n            \"crm\": 453561,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Summerview\",\r\n                \"cidade\": \"Nangakeo\",\r\n                \"numero\": \"8\",\r\n                \"complemento\": \"Road\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Reece Heibl\",\r\n            \"email\": \"rheibl13@nps.gov\",\r\n            \"crm\": 468532,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Mariners Cove\",\r\n                \"cep\": \"541038\",\r\n                \"cidade\": \"Villa del Rosario\",\r\n                \"numero\": \"56\",\r\n                \"complemento\": \"Plaza\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Colman Espinho\",\r\n            \"email\": \"cespinho14@netvibes.com\",\r\n            \"crm\": 844656,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Longview\",\r\n                \"cep\": \"4000\",\r\n                \"cidade\": \"Villa Urquiza\",\r\n                \"numero\": \"6163\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Adah Cleveley\",\r\n            \"email\": \"acleveley15@tripadvisor.com\",\r\n            \"crm\": 287414,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Charing Cross\",\r\n                \"cep\": \"293-0024\",\r\n                \"cidade\": \"Futtsu\",\r\n                \"numero\": \"1\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Reggis Simants\",\r\n            \"email\": \"rsimants16@tamu.edu\",\r\n            \"crm\": 82728,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Alpine\",\r\n                \"cidade\": \"Shuixi\",\r\n                \"numero\": \"1\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Ave Behnecken\",\r\n            \"email\": \"abehnecken17@bbb.org\",\r\n            \"crm\": 368654,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Burrows\",\r\n                \"cidade\": \"Dagou\",\r\n                \"numero\": \"7857\",\r\n                \"complemento\": \"Junction\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Evelyn Pettipher\",\r\n            \"email\": \"epettipher18@mtv.com\",\r\n            \"crm\": 879543,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Nevada\",\r\n                \"cep\": \"41230\",\r\n                \"cidade\": \"Si That\",\r\n                \"numero\": \"0972\",\r\n                \"complemento\": \"Drive\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Lars Woodwind\",\r\n            \"email\": \"lwoodwind19@tripod.com\",\r\n            \"crm\": 348780,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Veith\",\r\n                \"cep\": \"644002\",\r\n                \"cidade\": \"Povenets\",\r\n                \"numero\": \"3\",\r\n                \"complemento\": \"Road\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Jerrine Campanelle\",\r\n            \"email\": \"jcampanelle1a@qq.com\",\r\n            \"crm\": 57952,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Ilene\",\r\n                \"cidade\": \"Mirriah\",\r\n                \"numero\": \"8\",\r\n                \"complemento\": \"Center\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Karmen Carbery\",\r\n            \"email\": \"kcarbery1b@seattletimes.com\",\r\n            \"crm\": 311934,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Armistice\",\r\n                \"cidade\": \"Punākha\",\r\n                \"numero\": \"3\",\r\n                \"complemento\": \"Pass\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Neda McArt\",\r\n            \"email\": \"nmcart1c@independent.co.uk\",\r\n            \"crm\": 286131,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Green Ridge\",\r\n                \"cidade\": \"Xêgar\",\r\n                \"numero\": \"21\",\r\n                \"complemento\": \"Alley\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Beverie Joddins\",\r\n            \"email\": \"bjoddins1d@soup.io\",\r\n            \"crm\": 760240,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Pond\",\r\n                \"cidade\": \"Catamayo\",\r\n                \"numero\": \"3\",\r\n                \"complemento\": \"Drive\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Paulette Hilary\",\r\n            \"email\": \"philary1e@soup.io\",\r\n            \"crm\": 647510,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Jenna\",\r\n                \"cep\": \"249080\",\r\n                \"cidade\": \"Detchino\",\r\n                \"numero\": \"6\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Morna Duthy\",\r\n            \"email\": \"mduthy1f@mayoclinic.com\",\r\n            \"crm\": 922262,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Longview\",\r\n                \"cidade\": \"Pingya\",\r\n                \"numero\": \"17170\",\r\n                \"complemento\": \"Court\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Giovanni Cornelisse\",\r\n            \"email\": \"gcornelisse1g@dailymotion.com\",\r\n            \"crm\": 251117,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Barby\",\r\n                \"bairro\": \"Gävleborg\",\r\n                \"cep\": \"801 06\",\r\n                \"cidade\": \"Gävle\",\r\n                \"uf\": \"X\",\r\n                \"numero\": \"20196\",\r\n                \"complemento\": \"Hill\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Joni Garbert\",\r\n            \"email\": \"jgarbert1h@umich.edu\",\r\n            \"crm\": 432836,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Hoffman\",\r\n                \"cep\": \"684537\",\r\n                \"cidade\": \"Albania\",\r\n                \"numero\": \"7931\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Artemus Armin\",\r\n            \"email\": \"aarmin1i@xinhuanet.com\",\r\n            \"crm\": 293266,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Schlimgen\",\r\n                \"cidade\": \"Agarsin\",\r\n                \"numero\": \"40832\",\r\n                \"complemento\": \"Lane\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Rutger Wheildon\",\r\n            \"email\": \"rwheildon1j@army.mil\",\r\n            \"crm\": 425083,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Loomis\",\r\n                \"cidade\": \"Tambangan\",\r\n                \"numero\": \"4\",\r\n                \"complemento\": \"Trail\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Marlie Riccetti\",\r\n            \"email\": \"mriccetti1k@dell.com\",\r\n            \"crm\": 500113,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Quincy\",\r\n                \"cidade\": \"Tumpukrenteng\",\r\n                \"numero\": \"4\",\r\n                \"complemento\": \"Alley\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Ethe Wingate\",\r\n            \"email\": \"ewingate1l@slate.com\",\r\n            \"crm\": 976804,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Kings\",\r\n                \"bairro\": \"Vila Real\",\r\n                \"cep\": \"5070-175\",\r\n                \"cidade\": \"Amieiro\",\r\n                \"uf\": \"17\",\r\n                \"numero\": \"67\",\r\n                \"complemento\": \"Avenue\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Donny Emma\",\r\n            \"email\": \"demma1m@fema.gov\",\r\n            \"crm\": 461068,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Bunker Hill\",\r\n                \"cep\": \"856019\",\r\n                \"cidade\": \"Aguazul\",\r\n                \"numero\": \"61\",\r\n                \"complemento\": \"Plaza\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Sly Abyss\",\r\n            \"email\": \"sabyss1n@posterous.com\",\r\n            \"crm\": 720358,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Eliot\",\r\n                \"cidade\": \"Krajan Tambakrejo\",\r\n                \"numero\": \"2334\",\r\n                \"complemento\": \"Pass\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Arni Marcus\",\r\n            \"email\": \"amarcus1o@amazon.com\",\r\n            \"crm\": 366443,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Jenifer\",\r\n                \"cidade\": \"Tanahwangko\",\r\n                \"numero\": \"6990\",\r\n                \"complemento\": \"Drive\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Adlai Sicha\",\r\n            \"email\": \"asicha1p@examiner.com\",\r\n            \"crm\": 886827,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Kennedy\",\r\n                \"cidade\": \"Ponjen\",\r\n                \"numero\": \"170\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Fae McSkeagan\",\r\n            \"email\": \"fmcskeagan1q@yandex.ru\",\r\n            \"crm\": 822524,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Northport\",\r\n                \"bairro\": \"Västernorrland\",\r\n                \"cep\": \"862 95\",\r\n                \"cidade\": \"Njurunda\",\r\n                \"uf\": \"Y\",\r\n                \"numero\": \"8324\",\r\n                \"complemento\": \"Pass\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Daisie Nettles\",\r\n            \"email\": \"dnettles1r@newyorker.com\",\r\n            \"crm\": 596988,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Anthes\",\r\n                \"bairro\": \"New Brunswick\",\r\n                \"cep\": \"E2V\",\r\n                \"cidade\": \"Oromocto\",\r\n                \"uf\": \"NB\",\r\n                \"numero\": \"12\",\r\n                \"complemento\": \"Plaza\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Perri Magog\",\r\n            \"email\": \"pmagog1s@mayoclinic.com\",\r\n            \"crm\": 569270,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Onsgard\",\r\n                \"cidade\": \"Atambua\",\r\n                \"numero\": \"11\",\r\n                \"complemento\": \"Crossing\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Cordie Barnwill\",\r\n            \"email\": \"cbarnwill1t@smugmug.com\",\r\n            \"crm\": 176645,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Southridge\",\r\n                \"cep\": \"636708\",\r\n                \"cidade\": \"Kargasok\",\r\n                \"numero\": \"01\",\r\n                \"complemento\": \"Circle\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Chlo Chezelle\",\r\n            \"email\": \"cchezelle1u@ucla.edu\",\r\n            \"crm\": 272973,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Logan\",\r\n                \"bairro\": \"Hajdú-Bihar\",\r\n                \"cep\": \"4045\",\r\n                \"cidade\": \"Debrecen\",\r\n                \"uf\": \"HB\",\r\n                \"numero\": \"28\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Ginni Samwell\",\r\n            \"email\": \"gsamwell1v@miibeian.gov.cn\",\r\n            \"crm\": 728706,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Ridge Oak\",\r\n                \"cep\": \"166004\",\r\n                \"cidade\": \"Nar'yan-Mar\",\r\n                \"numero\": \"04568\",\r\n                \"complemento\": \"Trail\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Pauly Busfield\",\r\n            \"email\": \"pbusfield1w@facebook.com\",\r\n            \"crm\": 901140,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Mockingbird\",\r\n                \"cidade\": \"Nurabelen\",\r\n                \"numero\": \"80\",\r\n                \"complemento\": \"Center\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Bennie Hasluck\",\r\n            \"email\": \"bhasluck1x@domainmarket.com\",\r\n            \"crm\": 362999,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Jay\",\r\n                \"cidade\": \"Pedraza La Vieja\",\r\n                \"numero\": \"77654\",\r\n                \"complemento\": \"Center\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Aggi de Juares\",\r\n            \"email\": \"ade1y@wikipedia.org\",\r\n            \"crm\": 415152,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Walton\",\r\n                \"bairro\": \"Ontario\",\r\n                \"cep\": \"P5E\",\r\n                \"cidade\": \"Espanola\",\r\n                \"uf\": \"ON\",\r\n                \"numero\": \"439\",\r\n                \"complemento\": \"Street\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Trip Janaszkiewicz\",\r\n            \"email\": \"tjanaszkiewicz1z@dagondesign.com\",\r\n            \"crm\": 478624,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Memorial\",\r\n                \"cep\": \"13160-000\",\r\n                \"cidade\": \"Artur Nogueira\",\r\n                \"numero\": \"50172\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Malanie Tomas\",\r\n            \"email\": \"mtomas20@weibo.com\",\r\n            \"crm\": 999561,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Summerview\",\r\n                \"cidade\": \"Wangqingtuo\",\r\n                \"numero\": \"0\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Dex Rannald\",\r\n            \"email\": \"drannald21@rediff.com\",\r\n            \"crm\": 691782,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Continental\",\r\n                \"cep\": \"74-202\",\r\n                \"cidade\": \"Bielice\",\r\n                \"numero\": \"536\",\r\n                \"complemento\": \"Pass\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Leisha Stansell\",\r\n            \"email\": \"lstansell22@tuttocitta.it\",\r\n            \"crm\": 698891,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Claremont\",\r\n                \"cep\": \"2110\",\r\n                \"cidade\": \"Red Hill\",\r\n                \"numero\": \"1810\",\r\n                \"complemento\": \"Crossing\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Isak Friese\",\r\n            \"email\": \"ifriese23@networksolutions.com\",\r\n            \"crm\": 71385,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Graedel\",\r\n                \"cidade\": \"Ad Dujayl\",\r\n                \"numero\": \"11304\",\r\n                \"complemento\": \"Park\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Selig Atchly\",\r\n            \"email\": \"satchly24@pcworld.com\",\r\n            \"crm\": 648379,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Starling\",\r\n                \"cidade\": \"Zhoujia\",\r\n                \"numero\": \"9\",\r\n                \"complemento\": \"Junction\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Nessy Maiden\",\r\n            \"email\": \"nmaiden25@sitemeter.com\",\r\n            \"crm\": 197197,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Lake View\",\r\n                \"cep\": \"1114\",\r\n                \"cidade\": \"Manoc-Manoc\",\r\n                \"numero\": \"320\",\r\n                \"complemento\": \"Parkway\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Caddric Ofener\",\r\n            \"email\": \"cofener26@symantec.com\",\r\n            \"crm\": 334490,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Coolidge\",\r\n                \"cep\": \"43-365\",\r\n                \"cidade\": \"Wilkowice\",\r\n                \"numero\": \"5\",\r\n                \"complemento\": \"Avenue\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Dave Stetson\",\r\n            \"email\": \"dstetson27@apple.com\",\r\n            \"crm\": 543401,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Muir\",\r\n                \"cidade\": \"Ping’an\",\r\n                \"numero\": \"96\",\r\n                \"complemento\": \"Avenue\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Ileana Gross\",\r\n            \"email\": \"igross28@yolasite.com\",\r\n            \"crm\": 516036,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Maryland\",\r\n                \"cep\": \"2816\",\r\n                \"cidade\": \"Antipolo\",\r\n                \"numero\": \"27\",\r\n                \"complemento\": \"Center\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Humphrey Claiton\",\r\n            \"email\": \"hclaiton29@about.com\",\r\n            \"crm\": 748994,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Anderson\",\r\n                \"bairro\": \"Alberta\",\r\n                \"cep\": \"T6L\",\r\n                \"cidade\": \"Hanna\",\r\n                \"uf\": \"AB\",\r\n                \"numero\": \"271\",\r\n                \"complemento\": \"Junction\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Orlan Ferier\",\r\n            \"email\": \"oferier2a@netlog.com\",\r\n            \"crm\": 736351,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Namekagon\",\r\n                \"cidade\": \"Āsmār\",\r\n                \"numero\": \"2185\",\r\n                \"complemento\": \"Center\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Brana Heberden\",\r\n            \"email\": \"bheberden2b@shutterfly.com\",\r\n            \"crm\": 274506,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Westend\",\r\n                \"cep\": \"969-7208\",\r\n                \"cidade\": \"Fuji\",\r\n                \"numero\": \"406\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Kaleb Goosnell\",\r\n            \"email\": \"kgoosnell2c@wikispaces.com\",\r\n            \"crm\": 417700,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Lakewood\",\r\n                \"cidade\": \"Acobamba\",\r\n                \"numero\": \"490\",\r\n                \"complemento\": \"Court\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Jareb Cutchey\",\r\n            \"email\": \"jcutchey2d@friendfeed.com\",\r\n            \"crm\": 118003,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Elmside\",\r\n                \"cidade\": \"Soanierana Ivongo\",\r\n                \"numero\": \"10\",\r\n                \"complemento\": \"Park\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Lark Fishbourne\",\r\n            \"email\": \"lfishbourne2e@exblog.jp\",\r\n            \"crm\": 916856,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Saint Paul\",\r\n                \"cidade\": \"Lyubar\",\r\n                \"numero\": \"056\",\r\n                \"complemento\": \"Street\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Etan Turk\",\r\n            \"email\": \"eturk2f@edublogs.org\",\r\n            \"crm\": 595861,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Sunfield\",\r\n                \"cidade\": \"Lewograran\",\r\n                \"numero\": \"0687\",\r\n                \"complemento\": \"Street\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Fred Farreil\",\r\n            \"email\": \"ffarreil2g@digg.com\",\r\n            \"crm\": 608546,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Lunder\",\r\n                \"bairro\": \"Porto\",\r\n                \"cep\": \"4605-425\",\r\n                \"cidade\": \"Carvalho\",\r\n                \"uf\": \"13\",\r\n                \"numero\": \"5\",\r\n                \"complemento\": \"Pass\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Heinrik Loadman\",\r\n            \"email\": \"hloadman2h@parallels.com\",\r\n            \"crm\": 894772,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Fallview\",\r\n                \"cidade\": \"Zhugentan\",\r\n                \"numero\": \"4619\",\r\n                \"complemento\": \"Junction\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Sutherlan Sigg\",\r\n            \"email\": \"ssigg2i@adobe.com\",\r\n            \"crm\": 431379,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Summerview\",\r\n                \"bairro\": \"Viseu\",\r\n                \"cep\": \"3660-622\",\r\n                \"cidade\": \"Oliveira\",\r\n                \"uf\": \"18\",\r\n                \"numero\": \"2\",\r\n                \"complemento\": \"Drive\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Joshua McKeaney\",\r\n            \"email\": \"jmckeaney2j@timesonline.co.uk\",\r\n            \"crm\": 535805,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Fallview\",\r\n                \"cidade\": \"São Filipe\",\r\n                \"numero\": \"2884\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Calida Giabuzzi\",\r\n            \"email\": \"cgiabuzzi2k@parallels.com\",\r\n            \"crm\": 375696,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Aberg\",\r\n                \"cidade\": \"Sanshengyuan\",\r\n                \"numero\": \"11061\",\r\n                \"complemento\": \"Park\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Lucias Hendricks\",\r\n            \"email\": \"lhendricks2l@google.it\",\r\n            \"crm\": 655865,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Granby\",\r\n                \"bairro\": \"Coahuila De Zaragoza\",\r\n                \"cep\": \"26830\",\r\n                \"cidade\": \"Independencia\",\r\n                \"uf\": \"CHP\",\r\n                \"numero\": \"2312\",\r\n                \"complemento\": \"Avenue\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Selena Solly\",\r\n            \"email\": \"ssolly2m@meetup.com\",\r\n            \"crm\": 452143,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Hollow Ridge\",\r\n                \"cep\": \"D09\",\r\n                \"cidade\": \"Granard\",\r\n                \"numero\": \"5185\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Donnell Esgate\",\r\n            \"email\": \"desgate2n@patch.com\",\r\n            \"crm\": 612595,\r\n            \"especialidade\": \"ORTOPEDIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Westend\",\r\n                \"cidade\": \"Newala Kisimani\",\r\n                \"numero\": \"9\",\r\n                \"complemento\": \"Place\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Lockwood Nipper\",\r\n            \"email\": \"lnipper2o@zdnet.com\",\r\n            \"crm\": 618849,\r\n            \"especialidade\": \"GINECOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Holy Cross\",\r\n                \"bairro\": \"Västra Götaland\",\r\n                \"cep\": \"549 06\",\r\n                \"cidade\": \"Moholm\",\r\n                \"uf\": \"O\",\r\n                \"numero\": \"17392\",\r\n                \"complemento\": \"Avenue\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Rurik Putten\",\r\n            \"email\": \"rputten2p@cornell.edu\",\r\n            \"crm\": 663557,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Amoth\",\r\n                \"cidade\": \"Samajie Ewenkeminzu\",\r\n                \"numero\": \"0\",\r\n                \"complemento\": \"Avenue\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Bibbie Abbs\",\r\n            \"email\": \"babbs2q@epa.gov\",\r\n            \"crm\": 441435,\r\n            \"especialidade\": \"CARDIOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Oakridge\",\r\n                \"cidade\": \"Dayr Sāmit\",\r\n                \"numero\": \"6560\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        },\r\n        {\r\n            \"nome\": \"Gerrilee Clancy\",\r\n            \"email\": \"gclancy2r@spiegel.de\",\r\n            \"crm\": 820463,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"endereco\": {\r\n                \"logradouro\": \"Crescent Oaks\",\r\n                \"cep\": \"8160\",\r\n                \"cidade\": \"Cape Town\",\r\n                \"numero\": \"86\",\r\n                \"complemento\": \"Way\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/medicos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro Médicos2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n            \"nome\": \"Phebe Larkkem\",\r\n            \"email\": \"plarkkem1@twitter.com\",\r\n            \"crm\": 420681,\r\n            \"especialidade\": \"DERMATOLOGIA\",\r\n            \"telefone\":\"1982234259\",\r\n            \"endereco\": {\r\n                \"bairro\":\"ficcticio\",\r\n                \"cep\":\"02681608\",\r\n                \"uf\":\"A8\",\r\n                \"logradouro\": \"3rd\",\r\n                \"cidade\": \"Kasempa\",\r\n                \"numero\": \"135\",\r\n                \"complemento\": \"Park\"\r\n            }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/medicos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro Médicos Erro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"nome\": \"\",\r\n\"email\": \"rodrigo.ferreira@voll.med\",\r\n\"crm\": \"123456\",\r\n\"especialidade\": \"ORTOPEDIA\",\r\n\"endereco\": {\r\n    \"logradouro\": \"rua 1\",\r\n    \"bairro\": \"bairro\",\r\n    \"cep\": \"12345678\",\r\n    \"cidade\": \"Brasilia\",\r\n    \"uf\": \"DF\",\r\n    \"numero\": \"1\",\r\n    \"complemento\": \"complemento\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/medicos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listagem Médicos",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJleHAiOjE2ODI5NjgxNDh9.Yt5OJZgrUByNEadUOx5NMrtGrgYFnbXDII4uVFzwnJI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/medicos?sort=nome,desc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medicos"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "sort",
+											"value": "nome,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza Medico",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"telefone\": \"10123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/medicos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclui Medico",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/medicos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"medicos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Detalhes medico id = 4",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pacientes",
+					"item": [
+						{
+							"name": "Cadastro Pacientes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJleHAiOjE2ODI5NjE2NTl9.CjU0krIRyS46qlAYdgxnbDoFALYTP6kWXN5nF91_8EU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"nome\": \"Almeida de Carvalho\",\r\n\"email\": \"almeida.carvalho@fmail.com\",\r\n\"telefone\":\"12345678921\",\r\n\"cpf\":\"11111111113\",\r\n\"endereco\": {\r\n    \"logradouro\": \"rua A\",\r\n    \"bairro\": \"orriab\",\r\n    \"cep\": \"87654211\",\r\n    \"cidade\": \"Sao Paulo\",\r\n    \"uf\": \"SP\",\r\n    \"numero\": \"101\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pacientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pacientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro Pacientes Erro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"nome\": \"Joao de tal\",\r\n\"email\": \"joao.tal@fmail.com\",\r\n\"telefone\":\"\",\r\n\"cpf\":\"22222222222\",\r\n\"endereco\": {\r\n    \"logradouro\": \"rua A\",\r\n    \"bairro\": \"orriab\",\r\n    \"cep\": \"87654211\",\r\n    \"cidade\": \"Sao Paulo\",\r\n    \"uf\": \"SP\",\r\n    \"numero\": \"101\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pacientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pacientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listagem Pacientes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJleHAiOjE2ODI5NjgxNDh9.Yt5OJZgrUByNEadUOx5NMrtGrgYFnbXDII4uVFzwnJI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pacientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pacientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza Paciente",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"telefone\": \"11999998888\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pacientes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pacientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "detalhar paciente id = 2",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "detalhar paciente erro",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Seguranca",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"ana.souza@voll.med\",\r\n    \"senha\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Consultas",
+					"item": [
+						{
+							"name": "Consulta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgVm9sbC5tZWQiLCJzdWIiOiJhbmEuc291emFAdm9sbC5tZWQiLCJleHAiOjE2ODI5ODMwMTR9.joMhP5LL0jBnOiT1Wm3c6TS8jc5zYYA8tPriOdLVvz8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"especialidade\": \"ORTOPEDIA\",\r\n    \"idPaciente\": 1,\r\n    \"data\": \"2023-05-03T16:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/consultas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"consultas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"motivoCancelamento\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/consultas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"consultas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
